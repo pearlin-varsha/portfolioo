@@ -774,7 +774,7 @@ h1, h2, h3, h4, h5, h6 {
 .bg-blob {
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.38;
+  opacity: 0.48;
   pointer-events: none;
 }
 

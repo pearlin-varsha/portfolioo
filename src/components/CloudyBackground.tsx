@@ -44,7 +44,7 @@ export default function CloudyBackground() {
         zIndex: 1,
         pointerEvents: "none",
         overflow: "hidden",
-        backgroundColor: "#ECF2FA", // fallback light blue background
+        backgroundColor: "#F3F7FF", // fallback light blue background
         // Default initial fallback values for custom CSS variables
         "--mouse-x": "0px",
         "--mouse-y": "0px",
@@ -60,8 +60,8 @@ export default function CloudyBackground() {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, #ECF2FA 0%, #FAFBFD 50%, #F2F5FB 100%)",
-          opacity: 0.8,
+          background: "linear-gradient(135deg, #F0F6FF 0%, #FFFFFF 50%, #F4F8FE 100%)",
+          opacity: 1.0,
         }}
       />
 
@@ -126,7 +126,7 @@ export default function CloudyBackground() {
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#C4D9FD",
+            backgroundColor: "#A4C6FF",
             width: "100%",
             height: "100%",
           }}
@@ -148,7 +148,7 @@ export default function CloudyBackground() {
         <motion.div
           className="bg-blob animate-cloud-2"
           style={{
-            backgroundColor: "#CAD9FD",
+            backgroundColor: "#B0C8FF",
             width: "100%",
             height: "100%",
             animationDelay: "-5s",
@@ -171,7 +171,7 @@ export default function CloudyBackground() {
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#D9E2FC",
+            backgroundColor: "#C5D5FF",
             width: "100%",
             height: "100%",
             animationDelay: "-10s",
@@ -194,7 +194,7 @@ export default function CloudyBackground() {
         <motion.div
           className="bg-blob animate-cloud-2"
           style={{
-            backgroundColor: "#BDEEF4",
+            backgroundColor: "#9EEFFB",
             width: "100%",
             height: "100%",
             animationDelay: "-15s",
@@ -217,7 +217,7 @@ export default function CloudyBackground() {
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#93B6FC",
+            backgroundColor: "#81A9FF",
             width: "100%",
             height: "100%",
             animationDelay: "-20s",
