@@ -26,13 +26,16 @@ export async function POST(request: Request) {
     
     const { name, email, company, subject, message } = result.data;
     const resendApiKey = process.env.RESEND_API_KEY;
-    const host = request.headers.get("host") || "";
-    const isLocalhost = host.includes("localhost") || host.includes("127.0.0.1");
 
-    if (isLocalhost || !resendApiKey) {
+    // Check if the API key is missing, mock, or the default placeholder key
+    const isMockMode = !resendApiKey || 
+                       resendApiKey === "re_dQ91rr4E_QANzjKJbas7DemU6xK12e4EJ" || 
+                       resendApiKey.startsWith("re_mock");
+
+    if (isMockMode) {
       // Local/Offline mock mode fallback for immediate developer testing
       console.log("\n==================================================");
-      console.log(`📬 [MOCK MODE${isLocalhost ? " - LOCALHOST DETECTED" : ""}] NEW PORTFOLIO CONTACT SUBMISSION`);
+      console.log(`📬 [MOCK MODE] NEW PORTFOLIO CONTACT SUBMISSION`);
       console.log(`From: ${name} <${email}>`);
       console.log(`Company: ${company || "Not Provided"}`);
       console.log(`Subject: ${subject}`);
@@ -42,7 +45,7 @@ export async function POST(request: Request) {
       return NextResponse.json(
         { 
           success: true, 
-          message: `Message received in mock mode (${isLocalhost ? "localhost detected - email not sent" : "RESEND_API_KEY is not set"}).` 
+          message: "Message received in mock mode (using placeholder Resend API key - email not sent)." 
         },
         { status: 200 }
       );
