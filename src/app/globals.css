@@ -459,10 +459,6 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.04);
 }
 
-.building-floor-3 { border-bottom: 4px solid var(--accent-blue); }
-.building-floor-2 { border-bottom: 4px solid var(--accent-sage); }
-.building-floor-1 { border-bottom: 4px solid var(--accent-teal); }
-
 .building-base {
   width: 100%;
   max-width: 340px;

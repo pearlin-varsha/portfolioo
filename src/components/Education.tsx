@@ -126,7 +126,6 @@ export default function Education() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               style={{
-                borderColor: activeFloor === 0 ? "var(--accent-blue)" : "rgba(255, 255, 255, 0.7)",
                 boxShadow: activeFloor === 0 ? "0 10px 25px rgba(157, 188, 230, 0.25)" : "none",
               }}
             >
@@ -179,7 +178,6 @@ export default function Education() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
               style={{
-                borderColor: activeFloor === 1 ? "var(--accent-sage)" : "rgba(255, 255, 255, 0.7)",
                 boxShadow: activeFloor === 1 ? "0 10px 25px rgba(174, 205, 166, 0.25)" : "none",
               }}
             >
@@ -237,7 +235,6 @@ export default function Education() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
               style={{
-                borderColor: activeFloor === 2 ? "var(--accent-teal)" : "rgba(255, 255, 255, 0.7)",
                 boxShadow: activeFloor === 2 ? "0 10px 25px rgba(148, 210, 212, 0.25)" : "none",
               }}
             >
@@ -294,18 +291,7 @@ export default function Education() {
                     overflow: "hidden",
                   }}
                 >
-                  {/* Accent strip colored dynamically */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      bottom: 0,
-                      width: "5px",
-                      backgroundColor: activeFloor === 0 ? "var(--accent-blue)" : activeFloor === 1 ? "var(--accent-sage)" : "var(--accent-teal)",
-                      transition: "background-color 0.4s ease",
-                    }}
-                  />
+
 
                   {/* Level Tag */}
                   <span

@@ -154,17 +154,7 @@ export default function Experience() {
           }}
           style={{ position: "relative", overflow: "hidden" }}
         >
-          {/* Side Accent line */}
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "6px",
-              bottom: 0,
-              background: "linear-gradient(180deg, var(--accent-teal) 0%, var(--accent-blue) 100%)",
-            }}
-          />
+
 
           {/* Job Details Header */}
           <div className="experience-header">
@@ -233,8 +223,7 @@ export default function Experience() {
                         gap: "12px",
                         padding: "14px 16px",
                         borderRadius: "14px",
-                        border: "1px solid",
-                        borderColor: isActive ? skill.accentColor : "rgba(255, 255, 255, 0.5)",
+                        border: "none",
                         backgroundColor: isActive ? "rgba(255, 255, 255, 0.9)" : "rgba(255, 255, 255, 0.4)",
                         cursor: "pointer",
                         textAlign: "left",
@@ -283,7 +272,7 @@ export default function Experience() {
                     exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.25 }}
                     style={{
-                      border: `1px solid ${workspaceSkills[activeSkill].accentColor}`,
+                      border: "none",
                       borderRadius: "16px",
                       padding: "24px",
                       backgroundColor: "rgba(255, 255, 255, 0.5)",
