@@ -62,7 +62,7 @@ export default function Hero() {
           width: "40vw",
           height: "40vw",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(252,228,220,0.4) 0%, rgba(208,225,253,0.1) 70%)",
+          background: "radial-gradient(circle, rgba(157, 188, 230, 0.25) 0%, rgba(252, 250, 246, 0.05) 70%)",
           filter: "blur(60px)",
           pointerEvents: "none",
           zIndex: 1,
@@ -83,13 +83,14 @@ export default function Hero() {
               {/* Rotating pulsing spotlight glow behind image */}
               <motion.div 
                 className="portrait-glow" 
+                style={{ opacity: 0.25 }}
                 animate={{
                   rotate: [0, 360],
-                  scale: [1, 1.08, 0.95, 1],
+                  scale: [1, 1.04, 0.97, 1],
                 }}
                 transition={{
-                  rotate: { duration: 25, repeat: Infinity, ease: "linear" },
-                  scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
+                  rotate: { duration: 50, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 10, repeat: Infinity, ease: "easeInOut" },
                 }}
               />
 
@@ -97,11 +98,11 @@ export default function Hero() {
               <motion.div 
                 className="portrait-frame"
                 animate={{
-                  y: [0, -10, 0],
-                  scale: [1, 1.015, 1],
+                  y: [0, -6, 0],
+                  scale: [1, 1.008, 1],
                 }}
                 transition={{
-                  duration: 6,
+                  duration: 8,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -162,12 +163,11 @@ export default function Hero() {
                   className="btn-primary"
                   style={{ gap: "8px", display: "inline-flex", alignItems: "center" }}
                   whileHover={{
-                    scale: 1.04,
-                    borderRadius: "32px",
-                    boxShadow: "0 8px 24px rgba(147, 182, 252, 0.3)",
+                    scale: 1.02,
+                    boxShadow: "0 6px 18px rgba(135, 170, 222, 0.35)",
                   }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                   Contact Me <ArrowRight size={16} />
                 </motion.div>
@@ -183,12 +183,11 @@ export default function Hero() {
                   className="btn-secondary"
                   style={{ gap: "8px", display: "inline-flex", alignItems: "center" }}
                   whileHover={{
-                    scale: 1.04,
-                    borderRadius: "32px",
-                    boxShadow: "0 8px 24px rgba(0, 0, 0, 0.05)",
+                    scale: 1.02,
+                    boxShadow: "0 6px 16px rgba(157, 188, 230, 0.2)",
                   }}
                   whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
                 >
                   <LinkedInIcon size={18} /> LinkedIn
                 </motion.div>

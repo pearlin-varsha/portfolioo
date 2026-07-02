@@ -56,7 +56,7 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="section" style={{ backgroundColor: "rgba(204, 234, 229, 0.1)" }}>
+    <section id="experience" className="section" style={{ backgroundColor: "transparent" }}>
       {/* Background blobs specific to Experience section */}
       <div
         className="animate-glow"
@@ -67,8 +67,8 @@ export default function Experience() {
           width: "400px",
           height: "400px",
           borderRadius: "50%",
-          backgroundColor: "rgba(208, 225, 253, 0.35)", // Dusty Blue
-          filter: "blur(70px)",
+          backgroundColor: "rgba(148, 210, 212, 0.15)", // Soft Teal
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
@@ -94,7 +94,7 @@ export default function Experience() {
               letterSpacing: "0.08em",
             }}
           >
-            <Briefcase size={16} /> My Professional
+            <Briefcase size={16} style={{ color: "var(--accent-teal-dark)" }} /> My Professional
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -114,6 +114,10 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
+          whileHover={{
+            y: -6,
+            boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
+          }}
           style={{ position: "relative", overflow: "hidden" }}
         >
           {/* Side Accent line */}
@@ -124,20 +128,20 @@ export default function Experience() {
               left: 0,
               width: "6px",
               bottom: 0,
-              background: "linear-gradient(180deg, var(--accent-blue) 0%, var(--accent-teal) 100%)",
+              background: "linear-gradient(180deg, var(--accent-teal) 0%, var(--accent-blue) 100%)",
             }}
           />
 
           {/* Job Details Header */}
           <div className="experience-header">
             <div>
-              <span className="exp-company">{company}</span>
+              <span className="exp-company" style={{ color: "var(--accent-teal-dark)" }}>{company}</span>
               <h3 className="exp-role">{role}</h3>
             </div>
-            <span className="exp-period">{period}</span>
+            <span className="exp-period" style={{ border: "1px solid rgba(148, 210, 212, 0.3)" }}>{period}</span>
           </div>
 
-          <p className="exp-description" style={{ marginBottom: "36px" }}>{description}</p>
+          <p className="exp-description" style={{ marginBottom: "36px", color: "var(--text-charcoal)" }}>{description}</p>
 
           {/* Living Workspace Section */}
           <div style={{ marginBottom: "44px" }}>
@@ -145,7 +149,7 @@ export default function Experience() {
               style={{
                 fontSize: "1.1rem",
                 fontWeight: 600,
-                color: "var(--text-charcoal)",
+                color: "var(--text-headings)",
                 marginBottom: "20px",
                 display: "flex",
                 alignItems: "center",
@@ -159,6 +163,7 @@ export default function Experience() {
                   height: "12px",
                   borderRadius: "50%",
                   backgroundColor: "var(--accent-teal)",
+                  boxShadow: "0 0 10px rgba(148, 210, 212, 0.4)",
                 }}
               />
               Internship Tech Workspace
@@ -187,7 +192,7 @@ export default function Experience() {
                       key={idx}
                       onClick={() => setActiveSkill(idx)}
                       onMouseEnter={() => setActiveSkill(idx)}
-                      whileHover={{ scale: 1.03, y: -2 }}
+                      whileHover={{ scale: 1.02, y: -2 }}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -196,12 +201,12 @@ export default function Experience() {
                         borderRadius: "14px",
                         border: "1px solid",
                         borderColor: isActive ? skill.accentColor : "rgba(255, 255, 255, 0.5)",
-                        backgroundColor: isActive ? "rgba(255, 255, 255, 0.85)" : "rgba(255, 255, 255, 0.35)",
+                        backgroundColor: isActive ? "rgba(255, 255, 255, 0.9)" : "rgba(255, 255, 255, 0.4)",
                         cursor: "pointer",
                         textAlign: "left",
                         color: "var(--text-charcoal)",
-                        boxShadow: isActive ? "0 8px 20px rgba(0, 0, 0, 0.05)" : "none",
-                        transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)",
+                        boxShadow: isActive ? `0 8px 20px ${skill.accentColor}25` : "none",
+                        transition: "all 300ms ease-in-out",
                       }}
                     >
                       <div
@@ -213,8 +218,10 @@ export default function Experience() {
                           height: "34px",
                           borderRadius: "10px",
                           backgroundColor: skill.bgColor,
-                          color: "var(--text-charcoal)",
+                          color: skill.accentColor,
                           flexShrink: 0,
+                          transition: "all 0.3s ease",
+                          transform: isActive ? "scale(1.1)" : "scale(1)",
                         }}
                       >
                         {skill.icon}
@@ -258,14 +265,14 @@ export default function Experience() {
                     <div
                       style={{
                         position: "absolute",
-                        left: "-6px",
+                        left: "-4px",
                         top: "50%",
                         transform: "translateY(-50%)",
-                        width: "12px",
-                        height: "12px",
+                        width: "8px",
+                        height: "8px",
                         borderRadius: "50%",
                         backgroundColor: workspaceSkills[activeSkill].accentColor,
-                        boxShadow: `0 0 10px ${workspaceSkills[activeSkill].accentColor}`,
+                        boxShadow: `0 0 6px ${workspaceSkills[activeSkill].accentColor}`,
                         zIndex: 10,
                       }}
                     />
@@ -279,11 +286,11 @@ export default function Experience() {
                         right: 0,
                         height: "2px",
                         background: `linear-gradient(90deg, transparent 0%, ${workspaceSkills[activeSkill].accentColor} 50%, transparent 100%)`,
-                        opacity: 0.18,
+                        opacity: 0.08,
                         pointerEvents: "none",
                       }}
                       animate={{ y: [0, 150] }}
-                      transition={{ repeat: Infinity, duration: 4, ease: "linear" }}
+                      transition={{ repeat: Infinity, duration: 8, ease: "linear" }}
                     />
 
                     <span
@@ -304,13 +311,13 @@ export default function Experience() {
                         fontSize: "1.1rem",
                         fontWeight: 700,
                         margin: "0 0 8px 0",
-                        color: "var(--text-charcoal)",
+                        color: "var(--text-headings)",
                       }}
                     >
                       {workspaceSkills[activeSkill].name}
                     </h4>
                     
-                    <p style={{ fontSize: "0.9rem", lineHeight: "1.65", color: "var(--text-slate)", margin: 0 }}>
+                    <p style={{ fontSize: "0.9rem", lineHeight: "1.65", color: "var(--text-charcoal)", margin: 0 }}>
                       {workspaceSkills[activeSkill].detail}
                       {/* Blinking terminal square cursor */}
                       <motion.span

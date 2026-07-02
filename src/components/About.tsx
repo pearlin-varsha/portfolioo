@@ -5,6 +5,45 @@ import { motion, Variants } from "framer-motion";
 import { User, BookOpen, GraduationCap, Briefcase, Code2, Sparkles } from "lucide-react";
 import { portfolioData } from "@/data/portfolioData";
 
+const formatHighlightedText = (text: string) => {
+  const keywords = [
+    { word: "Python", className: "highlight-blue-teal font-semibold" },
+    { word: "Java", className: "highlight-sage-teal font-semibold" },
+    { word: "PostgreSQL", className: "highlight-blue-teal font-semibold" },
+    { word: "SQL", className: "highlight-sage-teal font-semibold" },
+    { word: "React", className: "highlight-blue-teal font-semibold" },
+    { word: "Expert Hire", className: "highlight-gold-coral font-semibold" },
+    { word: "Vellore Institute of Technology", className: "highlight-blue-teal font-semibold" },
+    { word: "VIT", className: "highlight-blue-teal font-semibold" },
+    { word: "Computer Science student", className: "highlight-blue-teal font-semibold" },
+    { word: "software engineering", className: "highlight-blue-teal font-semibold" },
+  ];
+  
+  let parts: (string | React.ReactNode)[] = [text];
+  
+  keywords.forEach(({ word, className }) => {
+    const newParts: (string | React.ReactNode)[] = [];
+    parts.forEach(part => {
+      if (typeof part === "string") {
+        const regex = new RegExp(`\\b(${word})\\b`, "g");
+        const splitText = part.split(regex);
+        for (let i = 0; i < splitText.length; i++) {
+          if (i % 2 === 1) {
+            newParts.push(<span key={word + i} className={className}>{splitText[i]}</span>);
+          } else {
+            newParts.push(splitText[i]);
+          }
+        }
+      } else {
+        newParts.push(part);
+      }
+    });
+    parts = newParts;
+  });
+  
+  return parts;
+};
+
 export default function About() {
   const paragraphs = portfolioData.about;
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
@@ -78,7 +117,7 @@ export default function About() {
   };
 
   return (
-    <section id="about" className="section" style={{ backgroundColor: "rgba(236, 242, 250, 0.3)" }}>
+    <section id="about" className="section" style={{ backgroundColor: "transparent" }}>
       {/* Background blobs specific to About section */}
       <div
         className="animate-glow"
@@ -86,11 +125,11 @@ export default function About() {
           position: "absolute",
           top: "10%",
           left: "15%",
-          width: "250px",
-          height: "250px",
+          width: "300px",
+          height: "300px",
           borderRadius: "50%",
-          backgroundColor: "rgba(196, 217, 253, 0.4)", // Light Dusty Blue
-          filter: "blur(50px)",
+          backgroundColor: "rgba(174, 205, 166, 0.12)", // Sage Green
+          filter: "blur(100px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
@@ -101,11 +140,11 @@ export default function About() {
           position: "absolute",
           bottom: "10%",
           right: "15%",
-          width: "300px",
-          height: "300px",
+          width: "350px",
+          height: "350px",
           borderRadius: "50%",
-          backgroundColor: "rgba(147, 182, 252, 0.25)", // Soft Sky Blue
-          filter: "blur(60px)",
+          backgroundColor: "rgba(245, 196, 179, 0.1)", // Soft Coral/Warm Cream
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
           animationDelay: "-3s",
@@ -132,7 +171,7 @@ export default function About() {
               letterSpacing: "0.08em",
             }}
           >
-            <User size={16} /> A Little
+            <User size={16} style={{ color: "var(--accent-sage)" }} /> A Little
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -162,12 +201,12 @@ export default function About() {
               onMouseLeave={() => setHoveredCard(null)}
               whileHover={{
                 y: -6,
-                rotate: index % 2 === 0 ? 0.8 : -0.8,
-                boxShadow: "0 20px 40px rgba(142, 151, 168, 0.15)",
+                boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
                 borderColor: card.accentColor,
+                backgroundColor: "rgba(255, 255, 255, 0.85)",
               }}
               style={{
-                transition: "border-color 0.3s ease, box-shadow 0.3s ease",
+                transition: "all 0.3s ease-in-out",
               }}
             >
               {/* Decorative top border bar unique to each card's theme */}
@@ -191,9 +230,11 @@ export default function About() {
                   height: "44px",
                   borderRadius: "50%",
                   backgroundColor: card.bgColor,
-                  color: "var(--text-charcoal)",
+                  color: card.accentColor,
                   marginBottom: "20px",
                   boxShadow: "0 4px 10px rgba(0, 0, 0, 0.02)",
+                  transition: "transform 0.3s ease, color 0.3s ease",
+                  transform: hoveredCard === index ? "scale(1.1) rotate(5deg)" : "scale(1)",
                 }}
               >
                 {card.icon}
@@ -205,7 +246,7 @@ export default function About() {
                   fontSize: "1.2rem",
                   fontWeight: 600,
                   marginBottom: "12px",
-                  color: "var(--text-charcoal)",
+                  color: "var(--text-headings)",
                   letterSpacing: "-0.01em",
                 }}
               >
@@ -217,11 +258,11 @@ export default function About() {
                 style={{
                   fontSize: "0.95rem",
                   lineHeight: "1.65",
-                  color: "var(--text-slate)",
+                  color: "var(--text-charcoal)",
                   margin: 0,
                 }}
               >
-                {card.content}
+                {formatHighlightedText(card.content)}
               </p>
 
               {/* Collapsible reveal details on hover */}
@@ -232,7 +273,7 @@ export default function About() {
                   opacity: hoveredCard === index ? 1 : 0,
                   marginTop: hoveredCard === index ? 16 : 0,
                 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
                 style={{ overflow: "hidden", width: "100%" }}
               >
                 <div
@@ -244,7 +285,7 @@ export default function About() {
                     paddingTop: "12px",
                   }}
                 >
-                  <strong style={{ color: card.accentColor }}>Core Details:</strong> {card.detail}
+                  <strong style={{ color: card.accentColor }}>Core Details:</strong> {formatHighlightedText(card.detail)}
                 </div>
               </motion.div>
             </motion.div>

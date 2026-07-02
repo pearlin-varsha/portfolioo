@@ -127,12 +127,12 @@ export default function ContactPage() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", textAlign: "left" }}
               >
-                <span className="hero-badge" style={{ backgroundColor: "var(--accent-blue-light)" }}>
+                <span className="hero-badge" style={{ backgroundColor: "var(--highlight-coral-light)", color: "var(--text-slate)", border: "1px solid rgba(245, 196, 179, 0.25)" }}>
                   Contact Page
                 </span>
                 
                 <h1 style={{ fontSize: "3.2rem", fontWeight: 700, lineHeight: 1.15, marginBottom: "18px", letterSpacing: "-0.03em" }}>
-                  Get In <span className="highlight-text">Touch</span>
+                  Get In <span className="highlight-gold-coral">Touch</span>
                 </h1>
                 
                 <p style={{ fontSize: "1.1rem", lineHeight: "1.65", color: "var(--text-slate)", marginBottom: "40px", maxWidth: "420px" }}>
@@ -148,7 +148,7 @@ export default function ContactPage() {
                       width: "140px",
                       height: "140px",
                       borderRadius: "50%",
-                      background: "radial-gradient(circle, rgba(208,225,253,0.7) 0%, rgba(255,255,255,0) 70%)",
+                      background: "radial-gradient(circle, rgba(245, 196, 179, 0.75) 0%, rgba(255, 255, 255, 0) 70%)",
                       filter: "blur(20px)",
                       top: 10,
                       left: 10,
@@ -174,7 +174,7 @@ export default function ContactPage() {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "12px", color: "var(--text-slate)" }}>
-                      <div style={{ padding: "8px", borderRadius: "50%", backgroundColor: "var(--accent-blue-light)", color: "var(--text-charcoal)" }}>
+                      <div style={{ padding: "8px", borderRadius: "50%", backgroundColor: "var(--highlight-coral-light)", color: "var(--highlight-coral)" }}>
                         <Send size={18} />
                       </div>
                       <span style={{ fontSize: "0.92rem", fontWeight: 500, fontFamily: "var(--font-headings)" }}>
@@ -196,7 +196,7 @@ export default function ContactPage() {
                       exit={{ opacity: 0, y: -30 }}
                       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                       className="glass-card"
-                      style={{ padding: "36px", border: "1px solid rgba(255,255,255,0.7)" }}
+                      style={{ position: "relative" }}
                     >
                       <form onSubmit={handleSubmit(onSubmit)}>
                         
@@ -364,13 +364,11 @@ export default function ContactPage() {
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                       className="glass-card"
                       style={{
-                        padding: "48px 36px",
                         textAlign: "center",
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "center",
-                        border: "1px solid rgba(255,255,255,0.7)",
                         minHeight: "400px",
                       }}
                     >
@@ -378,7 +376,7 @@ export default function ContactPage() {
                         initial={{ scale: 0, rotate: -45 }}
                         animate={{ scale: [0, 1.2, 1], rotate: 0 }}
                         transition={{ delay: 0.1, duration: 0.6, type: "spring", stiffness: 120 }}
-                        style={{ color: "var(--accent-teal)", marginBottom: "24px" }}
+                        style={{ color: "var(--highlight-coral)", marginBottom: "24px" }}
                       >
                         <CheckCircle2 size={72} strokeWidth={1.5} />
                       </motion.div>

@@ -36,7 +36,7 @@ export default function Contact() {
       isInternalLink: false,
       icon: <LinkedInIcon size={24} />,
       badgeClass: "badge-blue",
-      color: "#0A66C2",
+      color: "var(--accent-blue)",
     },
     {
       title: "Email",
@@ -45,8 +45,8 @@ export default function Contact() {
       isExternal: false,
       isInternalLink: true,
       icon: <Mail size={24} />,
-      badgeClass: "badge-sage",
-      color: "#2E7D32",
+      badgeClass: "badge-coral",
+      color: "var(--highlight-coral)",
     },
     {
       title: "Phone",
@@ -56,7 +56,7 @@ export default function Contact() {
       isInternalLink: false,
       icon: <Phone size={24} />,
       badgeClass: "badge-teal",
-      color: "#00796B",
+      color: "var(--accent-teal)",
     },
   ];
 
@@ -76,7 +76,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section" style={{ backgroundColor: "rgba(236, 242, 250, 0.15)" }}>
+    <section id="contact" className="section" style={{ backgroundColor: "transparent" }}>
       {/* Background blobs specific to Contact */}
       <div
         className="animate-glow"
@@ -88,8 +88,8 @@ export default function Contact() {
           width: "450px",
           height: "450px",
           borderRadius: "50%",
-          backgroundColor: "rgba(208, 225, 253, 0.35)", // Light Dusty Blue
-          filter: "blur(80px)",
+          backgroundColor: "rgba(245, 196, 179, 0.15)", // Soft Coral
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
@@ -115,7 +115,7 @@ export default function Contact() {
               letterSpacing: "0.08em",
             }}
           >
-            <Send size={16} /> Get In Touch
+            <Send size={16} style={{ color: "var(--highlight-coral)" }} /> Get In Touch
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -150,7 +150,7 @@ export default function Contact() {
                     height: "64px",
                     borderRadius: "50%",
                     marginBottom: "20px",
-                    color: "var(--text-charcoal)",
+                    color: card.color,
                     boxShadow: "0 4px 15px rgba(0, 0, 0, 0.02)",
                     border: "1px solid rgba(255, 255, 255, 0.8)",
                     transition: "all 0.3s ease",
@@ -206,7 +206,6 @@ export default function Contact() {
               alignItems: "center",
               textAlign: "center",
               justifyContent: "center",
-              padding: "40px",
               position: "relative",
               textDecoration: "none",
               color: "inherit",
@@ -222,9 +221,17 @@ export default function Contact() {
                 >
                   <motion.div
                     className="glass-card contact-card"
-                    style={cardStyle}
                     variants={cardVariants}
-                    whileHover={{ y: -6, scale: 1.02 }}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.015,
+                      boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
+                      borderColor: card.color,
+                    }}
+                    style={{
+                      ...cardStyle,
+                      transition: "all 300ms ease-in-out",
+                    }}
                   >
                     {cardContent}
                   </motion.div>
@@ -239,9 +246,17 @@ export default function Contact() {
                 target={card.isExternal ? "_blank" : undefined}
                 rel={card.isExternal ? "noopener noreferrer" : undefined}
                 className="glass-card contact-card"
-                style={cardStyle}
                 variants={cardVariants}
-                whileHover={{ y: -6, scale: 1.02 }}
+                whileHover={{
+                  y: -6,
+                  scale: 1.015,
+                  boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
+                  borderColor: card.color,
+                }}
+                style={{
+                  ...cardStyle,
+                  transition: "all 300ms ease-in-out",
+                }}
               >
                 {cardContent}
               </motion.a>

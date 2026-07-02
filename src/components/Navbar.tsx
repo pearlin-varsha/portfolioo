@@ -105,11 +105,11 @@ export default function Navbar() {
           alignItems: "center",
           transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
           padding: "0 24px",
-          backgroundColor: scrolled ? "rgba(253, 251, 247, 0.7)" : "transparent",
-          backdropFilter: scrolled ? "blur(16px)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(16px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255, 255, 255, 0.5)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 4px 20px rgba(142, 151, 168, 0.05)" : "none",
+          backgroundColor: scrolled ? "rgba(253, 251, 247, 0.85)" : "transparent",
+          backdropFilter: scrolled ? "blur(24px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(0, 0, 0, 0.05)" : "1px solid transparent",
+          boxShadow: scrolled ? "0 4px 20px rgba(142, 151, 168, 0.04)" : "none",
         }}
       >
         <div
@@ -160,7 +160,7 @@ export default function Navbar() {
                     position: "relative",
                     fontSize: "0.95rem",
                     fontWeight: isActive ? 600 : 400,
-                    color: isActive ? "var(--text-charcoal)" : "var(--text-slate)",
+                    color: isActive ? "var(--text-headings)" : "var(--text-slate)",
                     transition: "color 0.3s ease",
                     padding: "6px 0",
                     textDecoration: "none",
@@ -176,7 +176,7 @@ export default function Navbar() {
                         left: 0,
                         right: 0,
                         height: "2px",
-                        backgroundColor: "var(--text-charcoal)",
+                        backgroundColor: "var(--text-headings)",
                         borderRadius: "2px",
                       }}
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}

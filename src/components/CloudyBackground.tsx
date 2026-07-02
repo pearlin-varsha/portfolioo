@@ -24,12 +24,10 @@ export default function CloudyBackground() {
   }, []);
 
   const particles = [
-    { size: 12, bg: "#C4D9FD", top: "75%", left: "15%", duration: 25, delay: 0 },
-    { size: 16, bg: "#CAD9FD", top: "85%", left: "80%", duration: 30, delay: -4 },
-    { size: 10, bg: "#D9E2FC", top: "45%", left: "35%", duration: 20, delay: -8 },
-    { size: 14, bg: "#BDEEF4", top: "25%", left: "85%", duration: 28, delay: -12 },
-    { size: 18, bg: "#93B6FC", top: "60%", left: "20%", duration: 35, delay: -16 },
-    { size: 11, bg: "#F9D3C6", top: "30%", left: "10%", duration: 22, delay: -2 },
+    { size: 6, bg: "#DCE6FF", top: "75%", left: "15%", duration: 35, delay: 0 },
+    { size: 8, bg: "#E2ECFF", top: "85%", left: "80%", duration: 40, delay: -4 },
+    { size: 5, bg: "#EBF0FF", top: "45%", left: "35%", duration: 30, delay: -8 },
+    { size: 7, bg: "#DCF8FD", top: "25%", left: "85%", duration: 38, delay: -12 },
   ];
 
   return (
@@ -44,7 +42,7 @@ export default function CloudyBackground() {
         zIndex: 1,
         pointerEvents: "none",
         overflow: "hidden",
-        backgroundColor: "#F3F7FF", // fallback light blue background
+        backgroundColor: "#EBF3FC", // blue background fallback
         // Default initial fallback values for custom CSS variables
         "--mouse-x": "0px",
         "--mouse-y": "0px",
@@ -60,7 +58,7 @@ export default function CloudyBackground() {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, #F0F6FF 0%, #FFFFFF 50%, #F4F8FE 100%)",
+          background: "linear-gradient(135deg, #D4E5F7 0%, #EBF4FC 40%, #E1EDFA 70%, #C9DDF5 100%)", // blue transitions
           opacity: 1.0,
         }}
       />
@@ -92,15 +90,15 @@ export default function CloudyBackground() {
             backgroundColor: p.bg,
             top: p.top,
             left: p.left,
-            opacity: 0.22,
-            filter: "blur(3px)",
+            opacity: 0.08,
+            filter: "blur(2px)",
             pointerEvents: "none",
             zIndex: 2,
           }}
           animate={{
             y: [200, -500],
-            x: [0, 50, -50, 0],
-            scale: [0.8, 1.2, 0.9, 0.8],
+            x: [0, 30, -30, 0],
+            scale: [0.9, 1.1, 0.95, 0.9],
           }}
           transition={{
             duration: p.duration,
@@ -119,21 +117,21 @@ export default function CloudyBackground() {
           left: "-10vw",
           width: "45vw",
           height: "45vw",
-          transform: "translate3d(calc(var(--mouse-ratio-x) * 25px), calc(var(--mouse-ratio-y) * 25px), 0)",
-          transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: "translate3d(calc(var(--mouse-ratio-x) * 12px), calc(var(--mouse-ratio-y) * 12px), 0)",
+          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#A4C6FF",
+            backgroundColor: "#C6DDFC", // Rich Ice Blue
             width: "100%",
             height: "100%",
           }}
         />
       </div>
 
-      {/* Blob 2: Periwinkle Blue - Mid Right */}
+      {/* Blob 2: Warm Cream/Soft Gold - Mid Right */}
       <div
         style={{
           position: "absolute",
@@ -141,14 +139,14 @@ export default function CloudyBackground() {
           right: "-15vw",
           width: "50vw",
           height: "50vw",
-          transform: "translate3d(calc(var(--mouse-ratio-x) * -35px), calc(var(--mouse-ratio-y) * -35px), 0)",
-          transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: "translate3d(calc(var(--mouse-ratio-x) * -15px), calc(var(--mouse-ratio-y) * -15px), 0)",
+          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <motion.div
           className="bg-blob animate-cloud-2"
           style={{
-            backgroundColor: "#B0C8FF",
+            backgroundColor: "#B3D6FC", // Soft Baby Blue
             width: "100%",
             height: "100%",
             animationDelay: "-5s",
@@ -156,7 +154,7 @@ export default function CloudyBackground() {
         />
       </div>
 
-      {/* Blob 3: Lavender Blue - Bottom Left */}
+      {/* Blob 3: Soft Coral - Bottom Left */}
       <div
         style={{
           position: "absolute",
@@ -164,14 +162,14 @@ export default function CloudyBackground() {
           left: "-5vw",
           width: "40vw",
           height: "40vw",
-          transform: "translate3d(calc(var(--mouse-ratio-x) * 20px), calc(var(--mouse-ratio-y) * -20px), 0)",
-          transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: "translate3d(calc(var(--mouse-ratio-x) * 10px), calc(var(--mouse-ratio-y) * -10px), 0)",
+          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#C5D5FF",
+            backgroundColor: "#9EC5FC", // Rich Soft Blue
             width: "100%",
             height: "100%",
             animationDelay: "-10s",
@@ -179,7 +177,7 @@ export default function CloudyBackground() {
         />
       </div>
 
-      {/* Blob 4: Light Cyan Blue - Center Left */}
+      {/* Blob 4: Sage Green - Center Left */}
       <div
         style={{
           position: "absolute",
@@ -187,14 +185,14 @@ export default function CloudyBackground() {
           left: "15vw",
           width: "35vw",
           height: "35vw",
-          transform: "translate3d(calc(var(--mouse-ratio-x) * -20px), calc(var(--mouse-ratio-y) * 30px), 0)",
-          transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: "translate3d(calc(var(--mouse-ratio-x) * -10px), calc(var(--mouse-ratio-y) * 15px), 0)",
+          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <motion.div
           className="bg-blob animate-cloud-2"
           style={{
-            backgroundColor: "#9EEFFB",
+            backgroundColor: "#85B5F2", // Cornflower Blue
             width: "100%",
             height: "100%",
             animationDelay: "-15s",
@@ -202,7 +200,7 @@ export default function CloudyBackground() {
         />
       </div>
 
-      {/* Blob 5: Sky Blue - Bottom Right */}
+      {/* Blob 5: Soft Teal - Bottom Right */}
       <div
         style={{
           position: "absolute",
@@ -210,14 +208,14 @@ export default function CloudyBackground() {
           right: "10vw",
           width: "45vw",
           height: "45vw",
-          transform: "translate3d(calc(var(--mouse-ratio-x) * 30px), calc(var(--mouse-ratio-y) * 30px), 0)",
-          transition: "transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)",
+          transform: "translate3d(calc(var(--mouse-ratio-x) * 15px), calc(var(--mouse-ratio-y) * 15px), 0)",
+          transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
         <motion.div
           className="bg-blob animate-cloud-1"
           style={{
-            backgroundColor: "#81A9FF",
+            backgroundColor: "#A3CDFC", // Sky Blue
             width: "100%",
             height: "100%",
             animationDelay: "-20s",

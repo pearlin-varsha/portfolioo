@@ -39,25 +39,30 @@ export default function Skills() {
       return {
         icon: <Code2 size={20} />,
         badgeClass: "badge-blue",
-        glowColor: "rgba(208, 225, 253, 0.4)",
+        glowColor: "rgba(157, 188, 230, 0.25)",
+        iconColor: "var(--accent-blue)",
       };
     } else if (cleanTitle.includes("database")) {
       return {
         icon: <Database size={20} />,
         badgeClass: "badge-sage",
-        glowColor: "rgba(210, 227, 212, 0.4)",
+        glowColor: "rgba(174, 205, 166, 0.25)",
+        iconColor: "var(--accent-sage)",
       };
     } else if (cleanTitle.includes("tool")) {
       return {
         icon: <Wrench size={20} />,
         badgeClass: "badge-teal",
-        glowColor: "rgba(204, 234, 229, 0.4)",
+        glowColor: "rgba(148, 210, 212, 0.25)",
+        iconColor: "var(--accent-teal)",
       };
     } else {
+      const isEven = index % 2 === 0;
       return {
         icon: <Heart size={20} />,
-        badgeClass: index % 2 === 0 ? "badge-gold" : "badge-coral",
-        glowColor: index % 2 === 0 ? "rgba(246, 236, 189, 0.4)" : "rgba(249, 211, 198, 0.4)",
+        badgeClass: isEven ? "badge-gold" : "badge-coral",
+        glowColor: isEven ? "rgba(230, 197, 148, 0.25)" : "rgba(245, 196, 179, 0.25)",
+        iconColor: isEven ? "var(--highlight-gold)" : "var(--highlight-coral)",
       };
     }
   };
@@ -78,7 +83,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="section" style={{ backgroundColor: "rgba(236, 242, 250, 0.2)" }}>
+    <section id="skills" className="section" style={{ backgroundColor: "transparent" }}>
       {/* Background blobs for Skills */}
       <div
         className="animate-glow"
@@ -89,8 +94,8 @@ export default function Skills() {
           width: "300px",
           height: "300px",
           borderRadius: "50%",
-          backgroundColor: "rgba(208, 225, 253, 0.3)", // Soft Blue
-          filter: "blur(60px)",
+          backgroundColor: "rgba(230, 197, 148, 0.12)", // Soft Gold
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
@@ -101,11 +106,11 @@ export default function Skills() {
           position: "absolute",
           bottom: "10%",
           right: "5%",
-          width: "250px",
-          height: "250px",
+          width: "300px",
+          height: "300px",
           borderRadius: "50%",
-          backgroundColor: "rgba(217, 226, 252, 0.35)", // Soft Lavender Blue
-          filter: "blur(50px)",
+          backgroundColor: "rgba(245, 196, 179, 0.12)", // Soft Coral
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
           animationDelay: "-2.5s",
@@ -132,7 +137,7 @@ export default function Skills() {
               letterSpacing: "0.08em",
             }}
           >
-            <Sparkles size={16} /> What I Know
+            <Sparkles size={16} style={{ color: "var(--highlight-gold)" }} /> What I Know
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -162,6 +167,10 @@ export default function Skills() {
                   key={catIdx}
                   className="glass-card skill-cat-card"
                   variants={itemVariants}
+                  whileHover={{
+                    y: -6,
+                    boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
+                  }}
                   style={{ position: "relative", overflow: "hidden" }}
                 >
                   {/* Dynamic mini glow blob behind each card */}
@@ -181,7 +190,14 @@ export default function Skills() {
 
                   {/* Category Header */}
                   <div className="skill-cat-header">
-                    <div className="skill-cat-icon" style={{ color: "var(--text-charcoal)" }}>
+                    <div
+                      className="skill-cat-icon"
+                      style={{
+                        color: theme.iconColor,
+                        backgroundColor: theme.glowColor,
+                        borderColor: `${theme.iconColor}30`,
+                      }}
+                    >
                       {theme.icon}
                     </div>
                     <h3 className="skill-cat-title">{cat.title}</h3>
@@ -248,8 +264,8 @@ export default function Skills() {
                           dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                           dragElastic={0.45}
                           dragTransition={{ bounceStiffness: 450, bounceDamping: 15 }}
-                          whileHover={{ scale: 1.08, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
+                          whileHover={{ scale: 1.05, y: -3 }}
+                          whileTap={{ scale: 0.97 }}
                           style={{ cursor: "grab", position: "relative", zIndex: 10 }}
                         >
                           {skill}
@@ -274,7 +290,10 @@ export default function Skills() {
                   setHoveredSkill(null); // Clear tooltip
                 }}
                 className={`skills-tab-button ${idx === activeTab ? "active" : ""}`}
-                style={{ border: "none" }}
+                style={{
+                  border: "none",
+                  borderColor: idx === activeTab ? getCategoryTheme(cat.title, idx).iconColor : undefined,
+                }}
               >
                 {cat.title}
               </button>
@@ -307,7 +326,14 @@ export default function Skills() {
 
               {/* Category Header */}
               <div className="skill-cat-header">
-                <div className="skill-cat-icon" style={{ color: "var(--text-charcoal)" }}>
+                <div
+                  className="skill-cat-icon"
+                  style={{
+                    color: getCategoryTheme(categories[activeTab].title, activeTab).iconColor,
+                    backgroundColor: getCategoryTheme(categories[activeTab].title, activeTab).glowColor,
+                    borderColor: `${getCategoryTheme(categories[activeTab].title, activeTab).iconColor}30`,
+                  }}
+                >
                   {getCategoryTheme(categories[activeTab].title, activeTab).icon}
                 </div>
                 <h3 className="skill-cat-title">{categories[activeTab].title}</h3>
@@ -375,8 +401,8 @@ export default function Skills() {
                       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
                       dragElastic={0.45}
                       dragTransition={{ bounceStiffness: 450, bounceDamping: 15 }}
-                      whileHover={{ scale: 1.08, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05, y: -3 }}
+                      whileTap={{ scale: 0.97 }}
                       style={{ cursor: "grab", position: "relative", zIndex: 10 }}
                     >
                       {skill}

@@ -25,7 +25,7 @@ export default function Education() {
   };
 
   return (
-    <section id="education" className="section" style={{ backgroundColor: "rgba(208, 225, 253, 0.15)" }}>
+    <section id="education" className="section" style={{ backgroundColor: "transparent" }}>
       {/* Background elements for Education */}
       <div
         className="animate-glow"
@@ -36,8 +36,8 @@ export default function Education() {
           width: "350px",
           height: "350px",
           borderRadius: "50%",
-          backgroundColor: "rgba(208, 225, 253, 0.4)", // Dusty Blue
-          filter: "blur(60px)",
+          backgroundColor: "rgba(157, 188, 230, 0.15)", // Dusty Blue
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
         }}
@@ -51,8 +51,8 @@ export default function Education() {
           width: "300px",
           height: "300px",
           borderRadius: "50%",
-          backgroundColor: "rgba(189, 238, 244, 0.35)", // Light Cyan Blue
-          filter: "blur(55px)",
+          backgroundColor: "rgba(252, 250, 246, 0.12)", // Cream
+          filter: "blur(120px)",
           pointerEvents: "none",
           zIndex: 1,
           animationDelay: "-4s",
@@ -79,7 +79,7 @@ export default function Education() {
               letterSpacing: "0.08em",
             }}
           >
-            <GraduationCap size={16} /> Academic Growth
+            <GraduationCap size={16} style={{ color: "var(--accent-blue)" }} /> Academic Growth
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
@@ -125,6 +125,10 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              style={{
+                borderColor: activeFloor === 0 ? "var(--accent-blue)" : "rgba(255, 255, 255, 0.7)",
+                boxShadow: activeFloor === 0 ? "0 10px 25px rgba(157, 188, 230, 0.25)" : "none",
+              }}
             >
               {/* Crane Hook Rope SVG effect representing active building state */}
               <div className="crane-arm-line" />
@@ -133,8 +137,8 @@ export default function Education() {
               <div className="construction-light" />
               
               <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--text-charcoal)", marginBottom: "4px" }}>
-                <Hammer size={15} style={{ color: "#FFA726" }} />
-                <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "#FFA726", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                <Hammer size={15} style={{ color: "var(--highlight-gold)" }} />
+                <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "var(--highlight-gold)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
                   Under Construction
                 </span>
               </div>
@@ -156,9 +160,9 @@ export default function Education() {
                       height: "12px",
                       borderRadius: "2px",
                       border: "1px dashed rgba(255, 255, 255, 0.6)",
-                      backgroundColor: activeFloor === 0 ? "rgba(246, 236, 189, 0.9)" : "rgba(255, 255, 255, 0.1)",
-                      boxShadow: activeFloor === 0 ? "0 0 8px rgba(246, 236, 189, 0.7)" : "none",
-                      transition: "all 0.4s ease",
+                      backgroundColor: activeFloor === 0 ? "rgba(246, 236, 189, 0.95)" : "rgba(255, 255, 255, 0.1)",
+                      boxShadow: activeFloor === 0 ? "0 0 8px rgba(246, 236, 189, 0.8)" : "none",
+                      transition: "all 0.6s ease-in-out",
                     }}
                   />
                 ))}
@@ -174,6 +178,10 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
+              style={{
+                borderColor: activeFloor === 1 ? "var(--accent-sage)" : "rgba(255, 255, 255, 0.7)",
+                boxShadow: activeFloor === 1 ? "0 10px 25px rgba(174, 205, 166, 0.25)" : "none",
+              }}
             >
               <h4 style={{ fontSize: "0.95rem", fontWeight: 600, color: "var(--text-charcoal)", margin: 0 }}>
                 Springdays School
@@ -194,7 +202,7 @@ export default function Education() {
                       border: "1px solid rgba(255, 255, 255, 0.5)",
                       backgroundColor: activeFloor === 1 ? "rgba(246, 236, 189, 0.95)" : "rgba(255, 255, 255, 0.15)",
                       boxShadow: activeFloor === 1 ? "0 0 8px rgba(246, 236, 189, 0.8)" : "none",
-                      transition: "all 0.4s ease",
+                      transition: "all 0.6s ease-in-out",
                     }}
                   />
                 ))}
@@ -228,6 +236,10 @@ export default function Education() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              style={{
+                borderColor: activeFloor === 2 ? "var(--accent-teal)" : "rgba(255, 255, 255, 0.7)",
+                boxShadow: activeFloor === 2 ? "0 10px 25px rgba(148, 210, 212, 0.25)" : "none",
+              }}
             >
               <h4 style={{ fontSize: "0.95rem", fontWeight: 600, color: "var(--text-charcoal)", margin: 0 }}>
                 Ida Scudder School
@@ -248,7 +260,7 @@ export default function Education() {
                       border: "1px solid rgba(255, 255, 255, 0.5)",
                       backgroundColor: activeFloor === 2 ? "rgba(246, 236, 189, 0.95)" : "rgba(255, 255, 255, 0.15)",
                       boxShadow: activeFloor === 2 ? "0 0 8px rgba(246, 236, 189, 0.8)" : "none",
-                      transition: "all 0.4s ease",
+                      transition: "all 0.6s ease-in-out",
                     }}
                   />
                 ))}
@@ -280,8 +292,6 @@ export default function Education() {
                   style={{
                     position: "relative",
                     overflow: "hidden",
-                    padding: "36px",
-                    border: "1px solid rgba(255, 255, 255, 0.7)",
                   }}
                 >
                   {/* Accent strip colored dynamically */}
@@ -292,7 +302,8 @@ export default function Education() {
                       left: 0,
                       bottom: 0,
                       width: "5px",
-                      backgroundColor: "var(--accent-blue)",
+                      backgroundColor: activeFloor === 0 ? "var(--accent-blue)" : activeFloor === 1 ? "var(--accent-sage)" : "var(--accent-teal)",
+                      transition: "background-color 0.4s ease",
                     }}
                   />
 
@@ -302,10 +313,11 @@ export default function Education() {
                       display: "inline-block",
                       fontSize: "0.8rem",
                       fontWeight: 600,
-                      color: activeFloor === 0 ? "#FFA726" : "var(--accent-blue)",
+                      color: activeFloor === 0 ? "var(--highlight-gold)" : activeFloor === 1 ? "var(--accent-sage)" : "var(--accent-teal)",
                       textTransform: "uppercase",
                       letterSpacing: "0.05em",
                       marginBottom: "12px",
+                      transition: "color 0.4s ease",
                     }}
                   >
                     {getFloorLabel(activeFloor)}
@@ -316,7 +328,7 @@ export default function Education() {
                     style={{
                       fontSize: "1.45rem",
                       fontWeight: 700,
-                      color: "var(--text-charcoal)",
+                      color: "var(--text-headings)",
                       marginBottom: "8px",
                       letterSpacing: "-0.015em",
                     }}
@@ -336,7 +348,7 @@ export default function Education() {
                       gap: "6px",
                     }}
                   >
-                    <BookOpen size={16} style={{ color: "var(--accent-blue)" }} />
+                    <BookOpen size={16} style={{ color: activeFloor === 0 ? "var(--accent-blue)" : activeFloor === 1 ? "var(--accent-sage)" : "var(--accent-teal)" }} />
                     {educationItems[activeFloor].degree}
                   </h4>
 
@@ -349,14 +361,15 @@ export default function Education() {
                         gap: "6px",
                         fontSize: "0.85rem",
                         fontWeight: 500,
-                        backgroundColor: "rgba(208, 225, 253, 0.4)",
+                        backgroundColor: activeFloor === 0 ? "var(--accent-blue-light)" : activeFloor === 1 ? "var(--accent-sage-light)" : "var(--accent-teal-light)",
                         color: "var(--text-charcoal)",
                         padding: "5px 12px",
                         borderRadius: "100px",
+                        border: `1px solid ${activeFloor === 0 ? "rgba(157, 188, 230, 0.2)" : activeFloor === 1 ? "rgba(174, 205, 166, 0.2)" : "rgba(148, 210, 212, 0.2)"}`,
                         marginBottom: "20px",
                       }}
                     >
-                      <Calendar size={14} />
+                      <Calendar size={14} style={{ color: activeFloor === 0 ? "var(--accent-blue)" : activeFloor === 1 ? "var(--accent-sage)" : "var(--accent-teal)" }} />
                       {educationItems[activeFloor].status}
                     </div>
                   )}
@@ -366,7 +379,7 @@ export default function Education() {
                     style={{
                       fontSize: "0.98rem",
                       lineHeight: "1.7",
-                      color: "var(--text-slate)",
+                      color: "var(--text-charcoal)",
                       margin: 0,
                     }}
                   >
