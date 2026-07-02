@@ -95,6 +95,24 @@ export default function Contact() {
         }}
       />
 
+      {/* Subtle drifting background clouds */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "25%",
+          left: 0,
+          width: "120px",
+          height: "38px",
+          borderRadius: "19px",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          filter: "blur(5px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-140px", "100vw"] }}
+        transition={{ duration: 42, repeat: Infinity, ease: "linear", delay: -12 }}
+      />
+
       <div className="container" style={{ zIndex: 2 }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>

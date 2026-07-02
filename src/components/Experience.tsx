@@ -74,6 +74,40 @@ export default function Experience() {
         }}
       />
 
+      {/* Subtle drifting background clouds */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "15%",
+          left: 0,
+          width: "130px",
+          height: "42px",
+          borderRadius: "21px",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          filter: "blur(5px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-150px", "100vw"] }}
+        transition={{ duration: 55, repeat: Infinity, ease: "linear", delay: -10 }}
+      />
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "70%",
+          left: 0,
+          width: "100px",
+          height: "32px",
+          borderRadius: "16px",
+          backgroundColor: "rgba(255, 255, 255, 0.55)",
+          filter: "blur(4px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-120px", "100vw"] }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear", delay: -20 }}
+      />
+
       <div className="container" style={{ zIndex: 2, maxWidth: "950px" }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "56px" }}>

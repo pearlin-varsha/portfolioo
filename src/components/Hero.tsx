@@ -69,6 +69,40 @@ export default function Hero() {
         }}
       />
 
+      {/* Subtle drifting background clouds */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "20%",
+          left: 0,
+          width: "140px",
+          height: "45px",
+          borderRadius: "22px",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          filter: "blur(5px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-160px", "100vw"] }}
+        transition={{ duration: 50, repeat: Infinity, ease: "linear", delay: 0 }}
+      />
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "65%",
+          left: 0,
+          width: "90px",
+          height: "30px",
+          borderRadius: "15px",
+          backgroundColor: "rgba(255, 255, 255, 0.55)",
+          filter: "blur(4px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-110px", "100vw"] }}
+        transition={{ duration: 35, repeat: Infinity, ease: "linear", delay: -15 }}
+      />
+
       <div className="container" style={{ zIndex: 2 }}>
         <div className="hero-grid">
           

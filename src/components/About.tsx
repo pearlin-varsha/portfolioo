@@ -151,6 +151,40 @@ export default function About() {
         }}
       />
 
+      {/* Subtle drifting background clouds */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "35%",
+          left: 0,
+          width: "160px",
+          height: "50px",
+          borderRadius: "25px",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          filter: "blur(5px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-180px", "100vw"] }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear", delay: -5 }}
+      />
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "80%",
+          left: 0,
+          width: "110px",
+          height: "36px",
+          borderRadius: "18px",
+          backgroundColor: "rgba(255, 255, 255, 0.55)",
+          filter: "blur(4px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-130px", "100vw"] }}
+        transition={{ duration: 45, repeat: Infinity, ease: "linear", delay: -25 }}
+      />
+
       <div className="container" style={{ zIndex: 2, maxWidth: "1000px" }}>
         {/* Section Title */}
         <div style={{ textAlign: "center", marginBottom: "56px" }}>
@@ -200,41 +234,28 @@ export default function About() {
               onMouseEnter={() => setHoveredCard(index)}
               onMouseLeave={() => setHoveredCard(null)}
               whileHover={{
-                y: -6,
-                boxShadow: "0 20px 48px rgba(142, 151, 168, 0.12), 0 0 24px rgba(255, 255, 255, 0.45)",
-                borderColor: card.accentColor,
-                backgroundColor: "rgba(255, 255, 255, 0.85)",
+                y: -5,
+                boxShadow: "0 20px 40px rgba(142, 151, 168, 0.08), 0 1px 3px rgba(0, 0, 0, 0.01)",
+                backgroundColor: "rgba(255, 255, 255, 0.75)",
               }}
               style={{
                 transition: "all 0.3s ease-in-out",
               }}
             >
-              {/* Decorative top border bar unique to each card's theme */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: "4px",
-                  backgroundColor: card.accentColor,
-                }}
-              />
-
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  width: "44px",
-                  height: "44px",
+                  width: "48px",
+                  height: "48px",
                   borderRadius: "50%",
-                  backgroundColor: card.bgColor,
-                  color: card.accentColor,
-                  marginBottom: "20px",
-                  boxShadow: "0 4px 10px rgba(0, 0, 0, 0.02)",
-                  transition: "transform 0.3s ease, color 0.3s ease",
-                  transform: hoveredCard === index ? "scale(1.1) rotate(5deg)" : "scale(1)",
+                  backgroundColor: card.accentColor,
+                  color: "#ffffff",
+                  marginBottom: "24px",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
+                  transition: "transform 0.3s ease",
+                  transform: hoveredCard === index ? "scale(1.08) rotate(5deg)" : "scale(1)",
                 }}
               >
                 {card.icon}

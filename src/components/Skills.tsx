@@ -117,6 +117,24 @@ export default function Skills() {
         }}
       />
 
+      {/* Subtle drifting background clouds */}
+      <motion.div
+        style={{
+          position: "absolute",
+          top: "45%",
+          left: 0,
+          width: "150px",
+          height: "48px",
+          borderRadius: "24px",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+          filter: "blur(5px)",
+          zIndex: 1,
+          pointerEvents: "none",
+        }}
+        animate={{ x: ["-170px", "100vw"] }}
+        transition={{ duration: 48, repeat: Infinity, ease: "linear", delay: -8 }}
+      />
+
       <div className="container" style={{ zIndex: 2, maxWidth: "1000px" }}>
         {/* Section Header */}
         <div style={{ textAlign: "center", marginBottom: "64px" }}>

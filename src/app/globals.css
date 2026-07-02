@@ -103,29 +103,29 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Glassmorphic elements */
 .glass-card {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-radius: 24px;
-  box-shadow: 0 12px 36px var(--glass-shadow);
-  padding: 44px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(142, 151, 168, 0.04), 0 1px 2px rgba(0, 0, 0, 0.01), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  padding: 48px;
   position: relative;
   z-index: 10;
   transition: all 400ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.85); /* Brighten */
-  border-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 20px 48px rgba(142, 151, 168, 0.12),
-              0 0 24px rgba(255, 255, 255, 0.45); /* Deepen shadow and add light glow */
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 20px 40px rgba(142, 151, 168, 0.08), 0 1px 3px rgba(0, 0, 0, 0.01), inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 767px) {
   .glass-card {
-    padding: 24px;
+    padding: 28px;
+    border-radius: 24px;
   }
 }
 
