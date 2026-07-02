@@ -305,8 +305,8 @@ export default function Experience() {
                         width: "8px",
                         height: "8px",
                         borderRadius: "50%",
-                        backgroundColor: workspaceSkills[activeSkill].accentColor,
-                        boxShadow: `0 0 6px ${workspaceSkills[activeSkill].accentColor}`,
+                        backgroundColor: workspaceSkills[activeSkill].accentColor.replace(")", "-dark)"),
+                        boxShadow: `0 0 6px ${workspaceSkills[activeSkill].accentColor.replace(")", "-dark)")}`,
                         zIndex: 10,
                       }}
                     />
@@ -319,8 +319,8 @@ export default function Experience() {
                         left: 0,
                         right: 0,
                         height: "2px",
-                        background: `linear-gradient(90deg, transparent 0%, ${workspaceSkills[activeSkill].accentColor} 50%, transparent 100%)`,
-                        opacity: 0.08,
+                        background: `linear-gradient(90deg, transparent 0%, ${workspaceSkills[activeSkill].accentColor.replace(")", "-dark)")} 50%, transparent 100%)`,
+                        opacity: 0.12,
                         pointerEvents: "none",
                       }}
                       animate={{ y: [0, 150] }}
@@ -333,7 +333,7 @@ export default function Experience() {
                         fontWeight: 600,
                         textTransform: "uppercase",
                         letterSpacing: "0.05em",
-                        color: workspaceSkills[activeSkill].accentColor,
+                        color: workspaceSkills[activeSkill].accentColor.replace(")", "-dark)"),
                         marginBottom: "6px",
                       }}
                     >
@@ -351,7 +351,7 @@ export default function Experience() {
                       {workspaceSkills[activeSkill].name}
                     </h4>
                     
-                    <p style={{ fontSize: "0.9rem", lineHeight: "1.65", color: "var(--text-charcoal)", margin: 0 }}>
+                    <p style={{ fontSize: "0.9rem", lineHeight: "1.65", color: "#000000", fontWeight: 500, margin: 0 }}>
                       {workspaceSkills[activeSkill].detail}
                       {/* Blinking terminal square cursor */}
                       <motion.span
@@ -361,7 +361,7 @@ export default function Experience() {
                           display: "inline-block",
                           width: "8px",
                           height: "12px",
-                          backgroundColor: workspaceSkills[activeSkill].accentColor,
+                          backgroundColor: workspaceSkills[activeSkill].accentColor.replace(")", "-dark)"),
                           marginLeft: "4px",
                           verticalAlign: "middle",
                         }}

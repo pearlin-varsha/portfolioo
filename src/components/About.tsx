@@ -301,12 +301,15 @@ export default function About() {
                   style={{
                     fontSize: "0.88rem",
                     lineHeight: "1.5",
-                    color: "var(--text-slate)",
+                    color: "#000000",
                     borderTop: `1px dashed rgba(90, 96, 101, 0.15)`,
                     paddingTop: "12px",
                   }}
                 >
-                  <strong style={{ color: card.accentColor }}>Core Details:</strong> {formatHighlightedText(card.detail)}
+                  <strong style={{ color: card.accentColor.replace(")", "-dark)"), fontWeight: 700 }}>Core Details:</strong>{" "}
+                  <span style={{ fontWeight: 500 }}>
+                    {formatHighlightedText(card.detail)}
+                  </span>
                 </div>
               </motion.div>
             </motion.div>
