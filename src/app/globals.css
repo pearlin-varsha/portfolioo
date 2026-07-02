@@ -28,9 +28,9 @@
   --highlight-coral-light: rgba(245, 196, 179, 0.16);
 
   /* Typography Text Colors */
-  --text-headings: #1A1A1A;
-  --text-charcoal: #2C2C2C;
-  --text-slate: #4A5568;
+  --text-headings: #000000;
+  --text-charcoal: #111111;
+  --text-slate: #222222;
   
   /* Glassmorphism Configuration - Enhanced Visual Depth */
   --glass-bg: rgba(255, 255, 255, 0.65);
@@ -186,8 +186,8 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.95rem;
   font-weight: 600;
   color: #ffffff;
-  background: linear-gradient(135deg, #87AADE 0%, #78C6C8 100%); /* Premium Dusty Blue to Soft Teal */
-  box-shadow: 0 4px 14px rgba(135, 170, 222, 0.25);
+  background: linear-gradient(135deg, #1D4ED8 0%, #0891B2 100%); /* Royal Blue to Cyan */
+  box-shadow: 0 4px 14px rgba(29, 78, 216, 0.25);
   border: none;
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -196,8 +196,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  filter: brightness(1.02);
-  box-shadow: 0 6px 18px rgba(135, 170, 222, 0.35);
+  filter: brightness(1.05);
+  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.35);
 }
 
 .btn-secondary {
